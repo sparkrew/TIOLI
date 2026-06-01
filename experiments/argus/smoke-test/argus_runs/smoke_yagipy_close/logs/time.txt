@@ -1,0 +1,44 @@
+Command exited with non-zero status 1
+	Command being timed: "docker-compose run --rm -v /home/huawei/A.UDEM/trigger-plan/tools/Argus/argus_runs/smoke_yagipy_close:/host_run --entrypoint bash argus -lc 
+    echo '=== Running Argus ==='
+
+    python argus.py       --mode 'repo'       --url 'https://github.com/yagipy/habit-manager'       --commit 'd2ced458d934377fda56dd23ee541d249a47b638'       --workflow-path .github/workflows/close.yml
+
+    ARGUS_EXIT=$?
+
+    echo '=== Argus exit code:' $ARGUS_EXIT '==='
+
+    echo '=== Searching generated files ==='
+
+    find /root /tmp /results -type f 2>/dev/null       | tee /host_run/logs/files_inside_container.txt
+
+    echo '=== Copying SARIF reports ==='
+
+    find /root /tmp /results -type f -name '*.sarif' 2>/dev/null       -exec cp -v {} /host_run/results/ \; || true
+
+    echo $ARGUS_EXIT > /host_run/logs/argus_exit_code.txt
+
+    exit $ARGUS_EXIT
+  "
+	User time (seconds): 0.71
+	System time (seconds): 0.37
+	Percent of CPU this job got: 14%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:07.72
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 42376
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 380
+	Minor (reclaiming a frame) page faults: 10978
+	Voluntary context switches: 5872
+	Involuntary context switches: 32
+	Swaps: 0
+	File system inputs: 78800
+	File system outputs: 9064
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
