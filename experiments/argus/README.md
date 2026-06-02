@@ -8,9 +8,9 @@ ARGUS is used in this project to understand how taint tracking works in GitHub A
 
 The goal is not to rebuild ARGUS. The goal is to study how existing semantic analysis detects flows from untrusted GitHub event data to dangerous sinks, then use this understanding to improve LIOTI's trigger-context model.
 
-## Relation to LIOTI
+## Relation to TIOLI
 
-LIOTI focuses on unsafe trigger-context combinations.
+TIOLI focuses on unsafe trigger-context combinations.
 
 ARGUS focuses on source-to-sink taint tracking.
 
